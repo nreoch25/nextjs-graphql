@@ -1,0 +1,16 @@
+type Message {
+  _id: ID!
+  text: String!
+}
+type Query {
+  allMessages: [Message!]!
+}
+type Mutation {
+  postMessage(input: PostMessageInput): Message!
+}
+type Subscription {
+  newMessage: Message!
+}
+input PostMessageInput {
+  text: String!
+}
