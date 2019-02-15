@@ -9,16 +9,16 @@ services:
     build: ./nginx
     ports:
       - "80:80"
-    # depends_on:
-    #   - graphql
-    #   - client
-  # graphql:
-  #   build: ./server
-  #   volumes:
-  #     - /app/node_modules
-  #     - ./server:/app
-  #   depends_on:
-  #     - db
+    depends_on:
+      - graphql
+      - client
+  graphql:
+    build: ./server
+    volumes:
+      - /app/node_modules
+      - ./server:/app
+    depends_on:
+      - db
   client:
     build: ./client
     volumes:

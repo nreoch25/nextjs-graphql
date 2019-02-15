@@ -1,7 +1,8 @@
 const { ApolloServer, PubSub } = require("apollo-server-express");
 const { createServer } = require("http");
 const express = require("express");
-const expressPlayground = require("graphql-playground-middleware-express").default;
+const expressPlayground = require("graphql-playground-middleware-express")
+  .default;
 const { readFileSync } = require("fs");
 const mongoose = require("mongoose");
 require("dotenv").config();
@@ -37,7 +38,7 @@ app.get(
   "/playground",
   expressPlayground({
     endpoint: "/graphql",
-    subscriptionEndpoint: `ws://localhost:4000${server.graphqlPath}`
+    subscriptionEndpoint: `ws://localhost${server.graphqlPath}`
   })
 );
 
@@ -49,6 +50,3 @@ httpServer.listen({ port: 4000 }, () => {
     `GraphQL Server running @ http://localhost:4000${server.graphqlPath}`
   );
 });
-
-
-
