@@ -26,6 +26,7 @@ class MessageForm extends Component {
                 }
               }
             });
+            event.target.text.value = "";
           };
           return (
             <form onSubmit={handleSubmit}>
